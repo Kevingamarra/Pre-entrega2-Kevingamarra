@@ -13,3 +13,4 @@ Proyecto estático con Bootstrap 5, tipografía Natura, buscador y carrito (loca
 
 ## Ejecutar
 Abrir `index.html` en VS Code con la extensión *Live Server* o servir un http simple.
+# Pre-entrega2-Kevingamarra
