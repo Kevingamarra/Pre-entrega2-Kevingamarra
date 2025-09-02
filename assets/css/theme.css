@@ -1,64 +1,184 @@
+/* =========================================================
+   Pura Belleza - Theme CSS
+   Paleta oficial:
+   #d71d5c , #bc3662 , #fed0e3 , #e085a4 , #fffeff
+   ========================================================= */
 
-/* Pura Belleza — theme.css (avanzado) */
-@import url("https://cdn.jsdelivr.net/npm/@naturacosmeticos/natds-themes@latest/dist/assets/natura_fonts.css");
-:root{
-  --brand-50:#fff7fb;
-  --brand-100:#fed0e3;
-  --brand-200:#f5b7cc;
-  --brand-300:#e085a4;
-  --brand-400:#cc5a80;
-  --brand-500:#d71d5c;
-  --brand-600:#c21b56;
-  --brand-700:#bc3662;
-  --brand-800:#8e2245;
-  --brand-900:#6a1833;
-  --brand: var(--brand-500);
-  --bg:#fffeff; --surface:#fff9fb; --text:#1b1b1f; --muted:#6c757d;
-  --font-sans: "Natura Sans", Roboto, system-ui, -apple-system, "Segoe UI", Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-  --font-display: swap;
-  --fs-100: clamp(.80rem,.77rem + .15vw,.88rem);
-  --fs-200: clamp(.90rem,.86rem + .20vw,1rem);
-  --fs-300: clamp(1rem,.95rem + .30vw,1.125rem);
-  --fs-400: clamp(1.1rem,1rem + .50vw,1.25rem);
-  --fs-500: clamp(1.25rem,1.15rem + .80vw,1.5rem);
-  --fs-600: clamp(1.5rem,1.3rem + 1.4vw,2rem);
-  --fs-700: clamp(1.8rem,1.5rem + 2.0vw,2.5rem);
-  --radius: 16px; --radius-lg: 24px; --radius-sm: 10px;
-  --shadow-sm: 0 2px 12px rgba(0,0,0,.06);
-  --shadow-md: 0 8px 30px rgba(0,0,0,.10);
-  --easing: cubic-bezier(.2,.7,.2,1);
-  --speed: 260ms;
-  --bs-primary: var(--brand-600);
-  --bs-link-color: var(--brand-700);
-  --bs-link-hover-color: color-mix(in srgb, var(--brand-700), black 15%);
-}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--font-sans);color:var(--text);background:var(--bg)}
-:focus-visible{outline:3px solid color-mix(in srgb, var(--brand), #000 10%);outline-offset:2px}
-.navbar{box-shadow:var(--shadow-sm);background:#fff}
-.navbar .nav-link.active,.navbar .nav-link:hover{color:var(--brand-700)}
-.btn-brand{--_bg:var(--brand);--_bgH:color-mix(in srgb, var(--brand), #000 8%);background:var(--_bg);color:#fff;border:none}
-.btn-brand:hover{background:var(--_bgH);color:#fff}
-.btn-outline-brand{color:var(--brand-700);border-color:var(--brand-300);background:transparent}
-.btn-outline-brand:hover{background:var(--brand-50);border-color:var(--brand-400);color:var(--brand-800)}
-.card{border:1px solid #ececec;border-radius:var(--radius);overflow:hidden;transition:transform var(--speed) var(--easing), box-shadow var(--speed) var(--easing)}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
-.card .card-img-top{aspect-ratio: 4/3;object-fit:cover}
-.section-title{position:sticky;top:58px;z-index:10;background:linear-gradient(#fff,rgba(255,255,255,.86));backdrop-filter:saturate(160%) blur(6px)}
-.offcanvas{--bs-offcanvas-width:380px}
-.form-control:focus{border-color:var(--brand-300);box-shadow:0 0 0 .2rem color-mix(in srgb, var(--brand-300), transparent 70%)}
-.hero-video{background:linear-gradient(180deg, var(--brand-50), transparent 35%)}
-.hero-video .ratio{--bs-aspect-ratio:56.25%}
-.hero-video iframe,.hero-video video{width:100%;height:100%;object-fit:cover;display:block}
-.rounded-lg{border-radius:var(--radius)!important}
-.shadow-brand{box-shadow:0 6px 28px color-mix(in srgb, var(--brand), transparent 82%)}
-@media (prefers-color-scheme: dark){
-  :root{--bg:#0f1012;--surface:#17181b;--text:#f3f4f6;--muted:#a2a9b1}
-  .navbar,.section-title{background:linear-gradient(#131417,rgba(19,20,23,.9))}
-  .card{border-color:#24262b;background:#17181b}
-  .form-control,.form-select{background:#121317;color:var(--text);border-color:#2a2c31}
-}
-.category-anchor{scroll-margin-top:84px}
+/* ---------- Variables de marca ---------- */
+:root {
+  --brand-1: #d71d5c;  /* principal */
+  --brand-2: #bc3662;  /* oscuro/hover */
+  --brand-3: #fed0e3;  /* claro */
+  --brand-4: #e085a4;  /* medio */
+  --brand-5: #fffeff;  /* fondo */
 
-.badge-subcat{background:var(--brand-100);color:var(--brand-700);border:1px solid var(--brand-200)}
+  --text: #1b1b1f;
+  --surface: #ffffff;
+
+  /* Vincular a Bootstrap */
+  --bs-primary: var(--brand-1);
+  --bs-link-color: var(--brand-2);
+  --bs-link-hover-color: var(--brand-1);
+}
+
+/* ---------- Body y tipografía ---------- */
+body {
+  font-family: 'Natura Sans', 'Montserrat', 'Lato', sans-serif;
+  background: var(--brand-5);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background: #fff;
+}
+.navbar-brand {
+  font-weight: 600;
+  color: var(--brand-1);
+}
+.navbar-brand:hover {
+  color: var(--brand-2);
+}
+.nav-link {
+  color: var(--brand-2);
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--brand-1);
+}
+.navbar-light .navbar-toggler {
+  border: none;
+}
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ---------- Botones ---------- */
+.btn-brand {
+  background: var(--brand-1);
+  border-color: var(--brand-1);
+  color: #fff;
+}
+.btn-brand:hover {
+  background: var(--brand-2);
+  border-color: var(--brand-2);
+  color: #fff;
+}
+.btn-outline-brand {
+  color: var(--brand-2);
+  border-color: var(--brand-4);
+  background: transparent;
+}
+.btn-outline-brand:hover {
+  background: var(--brand-3);
+  border-color: var(--brand-2);
+  color: var(--brand-2);
+}
+
+/* ---------- Secciones ---------- */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--brand-2);
+}
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ---------- Hero con video ---------- */
+.hero-video {
+  background: linear-gradient(180deg, var(--brand-3), transparent 35%);
+}
+.hero-video .ratio {
+  --bs-aspect-ratio: 56.25%;
+}
+@media (max-width: 576px) {
+  .hero-video .ratio {
+    --bs-aspect-ratio: 70%;
+  }
+}
+
+/* ---------- Cards de productos ---------- */
+.card {
+  border-color: var(--brand-3);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.card .card-title {
+  font-weight: 500;
+  color: var(--text);
+}
+.card .card-img-top {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+/* Badges (subcategorías o aromas) */
+.badge-subcat {
+  background: var(--brand-3);
+  color: var(--brand-2);
+  border: 1px solid var(--brand-4);
+  font-size: 0.8rem;
+  padding: 0.35em 0.65em;
+  border-radius: 0.5rem;
+}
+
+/* ---------- Offcanvas Carrito ---------- */
+.offcanvas {
+  --bs-offcanvas-width: 400px;
+}
+@media (max-width: 576px) {
+  .offcanvas {
+    --bs-offcanvas-width: 92vw;
+  }
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--brand-3);
+  color: var(--brand-2);
+  font-size: 0.9rem;
+}
+
+/* ---------- Responsive ajustes ---------- */
+@media (max-width: 576px) {
+  header .d-flex {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  header .form-control {
+    min-width: 0;
+    width: 100%;
+  }
+  .row.g-3 {
+    --bs-gutter-x: 0.75rem;
+    --bs-gutter-y: 0.75rem;
+  }
+  .offcanvas { --bs-offcanvas-width: 92vw; }
+}
+
+/* ---------- Dark mode opcional ---------- */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0f1012;
+    color: #f5f7fa;
+  }
+  .navbar {
+    background: #14161a;
+  }
+  .card {
+    background: #17181b;
+    border-color: #2a2c31;
+  }
+  .nav-link { color: var(--brand-3); }
+  .nav-link:hover,
+  .nav-link.active { color: var(--brand-1); }
+}
