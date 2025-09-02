@@ -1,0 +1,64 @@
+
+/* Pura Belleza — theme.css (avanzado) */
+@import url("https://cdn.jsdelivr.net/npm/@naturacosmeticos/natds-themes@latest/dist/assets/natura_fonts.css");
+:root{
+  --brand-50:#fff7fb;
+  --brand-100:#fed0e3;
+  --brand-200:#f5b7cc;
+  --brand-300:#e085a4;
+  --brand-400:#cc5a80;
+  --brand-500:#d71d5c;
+  --brand-600:#c21b56;
+  --brand-700:#bc3662;
+  --brand-800:#8e2245;
+  --brand-900:#6a1833;
+  --brand: var(--brand-500);
+  --bg:#fffeff; --surface:#fff9fb; --text:#1b1b1f; --muted:#6c757d;
+  --font-sans: "Natura Sans", Roboto, system-ui, -apple-system, "Segoe UI", Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --font-display: swap;
+  --fs-100: clamp(.80rem,.77rem + .15vw,.88rem);
+  --fs-200: clamp(.90rem,.86rem + .20vw,1rem);
+  --fs-300: clamp(1rem,.95rem + .30vw,1.125rem);
+  --fs-400: clamp(1.1rem,1rem + .50vw,1.25rem);
+  --fs-500: clamp(1.25rem,1.15rem + .80vw,1.5rem);
+  --fs-600: clamp(1.5rem,1.3rem + 1.4vw,2rem);
+  --fs-700: clamp(1.8rem,1.5rem + 2.0vw,2.5rem);
+  --radius: 16px; --radius-lg: 24px; --radius-sm: 10px;
+  --shadow-sm: 0 2px 12px rgba(0,0,0,.06);
+  --shadow-md: 0 8px 30px rgba(0,0,0,.10);
+  --easing: cubic-bezier(.2,.7,.2,1);
+  --speed: 260ms;
+  --bs-primary: var(--brand-600);
+  --bs-link-color: var(--brand-700);
+  --bs-link-hover-color: color-mix(in srgb, var(--brand-700), black 15%);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font-sans);color:var(--text);background:var(--bg)}
+:focus-visible{outline:3px solid color-mix(in srgb, var(--brand), #000 10%);outline-offset:2px}
+.navbar{box-shadow:var(--shadow-sm);background:#fff}
+.navbar .nav-link.active,.navbar .nav-link:hover{color:var(--brand-700)}
+.btn-brand{--_bg:var(--brand);--_bgH:color-mix(in srgb, var(--brand), #000 8%);background:var(--_bg);color:#fff;border:none}
+.btn-brand:hover{background:var(--_bgH);color:#fff}
+.btn-outline-brand{color:var(--brand-700);border-color:var(--brand-300);background:transparent}
+.btn-outline-brand:hover{background:var(--brand-50);border-color:var(--brand-400);color:var(--brand-800)}
+.card{border:1px solid #ececec;border-radius:var(--radius);overflow:hidden;transition:transform var(--speed) var(--easing), box-shadow var(--speed) var(--easing)}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.card .card-img-top{aspect-ratio: 4/3;object-fit:cover}
+.section-title{position:sticky;top:58px;z-index:10;background:linear-gradient(#fff,rgba(255,255,255,.86));backdrop-filter:saturate(160%) blur(6px)}
+.offcanvas{--bs-offcanvas-width:380px}
+.form-control:focus{border-color:var(--brand-300);box-shadow:0 0 0 .2rem color-mix(in srgb, var(--brand-300), transparent 70%)}
+.hero-video{background:linear-gradient(180deg, var(--brand-50), transparent 35%)}
+.hero-video .ratio{--bs-aspect-ratio:56.25%}
+.hero-video iframe,.hero-video video{width:100%;height:100%;object-fit:cover;display:block}
+.rounded-lg{border-radius:var(--radius)!important}
+.shadow-brand{box-shadow:0 6px 28px color-mix(in srgb, var(--brand), transparent 82%)}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0f1012;--surface:#17181b;--text:#f3f4f6;--muted:#a2a9b1}
+  .navbar,.section-title{background:linear-gradient(#131417,rgba(19,20,23,.9))}
+  .card{border-color:#24262b;background:#17181b}
+  .form-control,.form-select{background:#121317;color:var(--text);border-color:#2a2c31}
+}
+.category-anchor{scroll-margin-top:84px}
+
+.badge-subcat{background:var(--brand-100);color:var(--brand-700);border:1px solid var(--brand-200)}
