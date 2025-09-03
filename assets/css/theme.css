@@ -8,133 +8,43 @@
   --text:#222;
 }
 
-html,body{ height:100%; }
-body{
-  font-family:"Natura Sans", Arial, sans-serif;
-  background:var(--brand-5);
-  color:var(--text);
-  padding-top:72px; /* espacio por navbar fija */
-}
+/* General */
+body{ background: var(--brand-5); color: var(--text); }
+.navbar{ background: #fff; }
+.nav-link{ color: var(--brand-2); }
+.nav-link:hover{ color: var(--brand-1); }
 
 /* Botones */
-.btn-brand{
-  background:var(--brand-1);
-  color:#fff;
-}
-.btn-brand:hover{ background:var(--brand-2); color:#fff; }
+.btn-brand{ background: var(--brand-1); border-color: var(--brand-1); color:#fff; }
+.btn-brand:hover{ background: var(--brand-2); border-color: var(--brand-2); }
+.btn-outline-brand{ color: var(--brand-2); border-color: var(--brand-4); }
+.btn-outline-brand:hover{ background: var(--brand-3); border-color: var(--brand-2); color: var(--brand-2); }
 
-.btn-outline-brand{
-  border-color:var(--brand-1);
-  color:var(--brand-1);
-}
-.btn-outline-brand:hover{
-  background:var(--brand-1);
-  color:#fff;
-}
+/* Productos */
+.products-row{ display:flex; gap:1rem; overflow-x:auto; scroll-snap-type:x mandatory; }
+.products-row .product{ flex:0 0 220px; scroll-snap-align:start; }
+.card .card-title{ color:var(--text); }
+.badge-subcat{ background: var(--brand-3); color: var(--brand-2); border:1px solid var(--brand-4); }
 
-/* Titulares */
-.section-title{
-  font-weight:700;
-  color:var(--brand-1);
-}
+/* Carrusel */
+.carousel-btn{ border:none; background:transparent; color:var(--brand-2); font-size:1.5rem; }
+.carousel-btn:disabled{ opacity:0.3; cursor:not-allowed; }
 
-/* Subtítulo de subcategoría */
-.subcat-heading{
-  font-size:1.25rem;
-  font-weight:600;
-  color:var(--brand-2);
-  margin:1.5rem 0 .75rem;
-  border-bottom:2px solid var(--brand-3);
-  padding-bottom:.35rem;
-}
+/* Hero */
+.hero-video{ background: linear-gradient(180deg, var(--brand-3), transparent 35%); }
 
-/* ---- Carrusel/Fila única con flechas ---- */
-.carousel-row{
-  position:relative;
-  padding:0 2.5rem; /* deja espacio a las flechas */
-}
+/* Info final */
+.info-section{ background-color:#fed0e3; }
+.info-section h3.section-title{ color:var(--brand-2); }
+.info-section h5{ font-weight:600; color:var(--brand-1); }
 
-.products-row{
-  display:flex;
-  gap:1rem;
-  overflow-x:auto;
-  padding-bottom:.5rem;
-  scroll-snap-type:x mandatory;
-  scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:thin;
+/* WhatsApp */
+.whatsapp-float{
+  position: fixed; right:18px; bottom:18px;
+  width:56px; height:56px; border-radius:50%;
+  background:#25D366; color:#fff;
+  display:grid; place-items:center;
+  box-shadow:0 8px 18px rgba(0,0,0,.2);
+  z-index:1100; text-decoration:none;
 }
-.products-row::-webkit-scrollbar{ height:8px; }
-.products-row::-webkit-scrollbar-thumb{ background:var(--brand-3); border-radius:4px; }
-.products-row::-webkit-scrollbar-track{ background:transparent; }
-
-/* Cards */
-.card.product{
-  flex:0 0 240px;      /* 1 sola línea horizontal */
-  scroll-snap-align:start;
-  display:flex;
-  flex-direction:column;
-  border:1px solid #00000010;
-  border-radius:.75rem;
-}
-@media (min-width:768px){ .card.product{ flex-basis:260px; } }
-@media (min-width:1200px){ .card.product{ flex-basis:280px; } }
-
-.card.product .img-wrap{
-  aspect-ratio:4/3;
-  overflow:hidden;
-  background:#0001;
-}
-.card.product .img-wrap img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.card.product .card-body{
-  display:flex;
-  flex-direction:column;
-}
-.card.product .title{
-  font-size:.95rem;
-  font-weight:600;
-  margin-bottom:.25rem;
-}
-.card.product .price{ font-weight:700; }
-
-/* Chips/badges */
-.badge-subcat{
-  background:var(--brand-1);
-  color:#fff;
-  font-size:.7rem;
-  border-radius:999px;
-  padding:.25rem .5rem;
-}
-.badge-aroma{
-  background:var(--brand-3);
-  color:var(--brand-2);
-  font-size:.7rem;
-  border-radius:999px;
-  padding:.25rem .5rem;
-}
-
-/* Flechas del carrusel */
-.carousel-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:42px;
-  height:42px;
-  border:0;
-  border-radius:50%;
-  background:var(--brand-1);
-  color:#fff;
-  display:grid;
-  place-items:center;
-  box-shadow:0 6px 16px rgba(0,0,0,.15);
-  cursor:pointer;
-  z-index:2;
-}
-.carousel-btn:hover{ background:var(--brand-2); }
-.carousel-btn.prev{ left:.25rem; }
-.carousel-btn.next{ right:.25rem; }
-.carousel-btn[disabled]{ opacity:.4; cursor:default; }
+.whatsapp-float:hover{ background:#1ebe5d; }
