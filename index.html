@@ -1,36 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pura Belleza - Cosméticos</title>
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Tipografía Natura Sans -->
+  <link href="https://cdn.jsdelivr.net/npm/@naturacosmeticos/natds-themes@latest/dist/assets/natura_fonts.css" rel="stylesheet">
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="assets/css/theme.css">
 </head>
 <body>
-  <header class="navbar navbar-expand-lg fixed-top bg-white">
+  <!-- NAV -->
+  <header class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#inicio">
         <img src="assets/img/logo.png" alt="Pura Belleza" height="40" class="me-2">
         Pura Belleza
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Mostrar menú">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="#perfumeria">Perfumería</a></li>
           <li class="nav-item"><a class="nav-link" href="#cuidados">Cuidados diarios</a></li>
           <li class="nav-item"><a class="nav-link" href="#maquillaje">Maquillaje</a></li>
           <li class="nav-item"><a class="nav-link" href="#regalos">Regalos</a></li>
         </ul>
-        <form class="d-flex ms-3">
-          <input class="form-control me-2" type="search" id="searchProducts" placeholder="Buscar productos...">
+        <!-- Buscador -->
+        <form class="d-flex ms-lg-3 mt-3 mt-lg-0" role="search">
+          <input id="searchProducts" class="form-control me-2" type="search" placeholder="Buscar productos…" aria-label="Buscar">
           <button class="btn btn-outline-brand" type="submit"><i class="bi bi-search"></i></button>
         </form>
-        <button class="btn btn-brand ms-3" data-bs-toggle="offcanvas" data-bs-target="#carrito" aria-label="Abrir carrito">
+        <!-- Carrito -->
+        <button class="btn btn-brand ms-lg-3 mt-3 mt-lg-0" data-bs-toggle="offcanvas" data-bs-target="#carrito" aria-controls="carrito" title="Carrito">
           <i class="bi bi-cart"></i>
           <span id="cartBadge" class="badge bg-danger rounded-pill ms-1">0</span>
         </button>
@@ -38,11 +47,12 @@
     </div>
   </header>
 
-  <main class="mt-5 pt-4" id="inicio">
-    <section class="hero-video position-relative mb-4">
+  <main id="inicio" class="pt-5">
+    <!-- HERO con video local -->
+    <section class="hero-video position-relative py-4">
       <div class="container">
-        <div class="ratio ratio-16x9 rounded-lg shadow-brand overflow-hidden">
-          <video autoplay muted loop playsinline poster="assets/img/poster.jpg">
+        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/img/poster.jpg">
             <source src="assets/video/Video-principal.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de video.
           </video>
@@ -50,379 +60,85 @@
       </div>
     </section>
 
-    <section id="perfumeria" class="container py-5 category-anchor">
-      <h2 class="section-title mb-4">Perfumería</h2>
-      <!-- Filtros por subcategoría -->
-      <div class="d-flex flex-wrap gap-2 mb-3" id="filtersPerf">
-        <button class="btn btn-outline-brand btn-sm" data-filter-subcat="*">Todas</button>
-        <button class="btn btn-outline-brand btn-sm" data-filter-subcat="Kaiak">Kaiak</button>
-        <button class="btn btn-outline-brand btn-sm" data-filter-subcat="Essencial">Essencial</button>
-        <button class="btn btn-outline-brand btn-sm" data-filter-subcat="Kriska">Kriska</button>
-        <button class="btn btn-outline-brand btn-sm" data-filter-subcat="Luna">Luna</button>
-        <button class="btn btn-outline-brand btn-sm" data-filter-subcat="Humor">Humor</button>
-        <button class="btn btn-outline-brand btn-sm" data-filter-subcat="Otros">Otros</button>
+    <!-- PERFUMERÍA (carruseles por subcategoría) -->
+    <section id="perfumeria" class="container py-5">
+      <h2 class="section-title mb-3">Perfumería</h2>
+
+      <!-- Filtros -->
+      <div class="d-flex flex-wrap gap-2 align-items-center mb-4">
+        <div class="btn-group flex-wrap" role="group" aria-label="Filtro por marca">
+          <button class="btn btn-outline-brand btn-sm active" data-subcat="*">Todas</button>
+          <button class="btn btn-outline-brand btn-sm" data-subcat="Kaiak">Kaiak</button>
+          <button class="btn btn-outline-brand btn-sm" data-subcat="Essencial">Essencial</button>
+          <button class="btn btn-outline-brand btn-sm" data-subcat="Kriska">Kriska</button>
+          <button class="btn btn-outline-brand btn-sm" data-subcat="Luna">Luna</button>
+          <button class="btn btn-outline-brand btn-sm" data-subcat="Humor">Humor</button>
+          <button class="btn btn-outline-brand btn-sm" data-subcat="Otros">Otros</button>
+        </div>
+
+        <!-- Filtro aroma -->
+        <div class="dropdown ms-auto">
+          <button class="btn btn-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">Aroma</button>
+          <div class="dropdown-menu dropdown-menu-end" id="aromaMenu">
+            <button class="dropdown-item" data-aroma="*">Todos</button>
+            <button class="dropdown-item" data-aroma="Acuático">Acuático</button>
+            <button class="dropdown-item" data-aroma="Amaderado">Amaderado</button>
+            <button class="dropdown-item" data-aroma="Floral">Floral</button>
+            <button class="dropdown-item" data-aroma="Frutal">Frutal</button>
+          </div>
+        </div>
       </div>
 
-    <div class="row g-3"><div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Kaiak" data-aroma="Acuático" data-id="perfumeria-femenina-1">
-          <img src="assets/img/productos/perfumeria/femenina/perfumeria-femenina-1.jpg" class="card-img-top" alt="Perfumería Femenina 1">
-          <div class="card-body"><span class="badge badge-subcat me-2">Kaiak</span><span class="badge bg-success-subtle text-success-emphasis me-2">Acuático</span>
-            <h5 class="card-title">Perfumería Femenina 1</h5>
-            <p class="card-text"><strong class="price" data-price="13999">$ 13.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Essencial" data-aroma="Amaderado" data-id="perfumeria-femenina-2">
-          <img src="assets/img/productos/perfumeria/femenina/perfumeria-femenina-2.jpg" class="card-img-top" alt="Perfumería Femenina 2">
-          <div class="card-body"><span class="badge badge-subcat me-2">Essencial</span><span class="badge bg-success-subtle text-success-emphasis me-2">Amaderado</span>
-            <h5 class="card-title">Perfumería Femenina 2</h5>
-            <p class="card-text"><strong class="price" data-price="14999">$ 14.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Kaiak" data-aroma="Herbal" data-id="perfumeria-femenina-3">
-          <img src="assets/img/productos/perfumeria/femenina/perfumeria-femenina-3.jpg" class="card-img-top" alt="Perfumería Femenina 3">
-          <div class="card-body"><span class="badge badge-subcat me-2">Kaiak</span><span class="badge bg-success-subtle text-success-emphasis me-2">Herbal</span>
-            <h5 class="card-title">Perfumería Femenina 3</h5>
-            <p class="card-text"><strong class="price" data-price="15999">$ 15.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Kriska" data-aroma="Dulce" data-id="perfumeria-femenina-4">
-          <img src="assets/img/productos/perfumeria/femenina/perfumeria-femenina-4.jpg" class="card-img-top" alt="Perfumería Femenina 4">
-          <div class="card-body"><span class="badge badge-subcat me-2">Kriska</span><span class="badge bg-success-subtle text-success-emphasis me-2">Dulce</span>
-            <h5 class="card-title">Perfumería Femenina 4</h5>
-            <p class="card-text"><strong class="price" data-price="16999">$ 16.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Humor" data-aroma="Frutal" data-id="perfumeria-femenina-5">
-          <img src="assets/img/productos/perfumeria/femenina/perfumeria-femenina-5.jpg" class="card-img-top" alt="Perfumería Femenina 5">
-          <div class="card-body"><span class="badge badge-subcat me-2">Humor</span><span class="badge bg-success-subtle text-success-emphasis me-2">Frutal</span>
-            <h5 class="card-title">Perfumería Femenina 5</h5>
-            <p class="card-text"><strong class="price" data-price="17999">$ 17.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Kaiak" data-aroma="Fresco" data-id="perfumeria-femenina-6">
-          <img src="assets/img/productos/perfumeria/femenina/perfumeria-femenina-6.jpg" class="card-img-top" alt="Perfumería Femenina 6">
-          <div class="card-body"><span class="badge badge-subcat me-2">Kaiak</span><span class="badge bg-success-subtle text-success-emphasis me-2">Fresco</span>
-            <h5 class="card-title">Perfumería Femenina 6</h5>
-            <p class="card-text"><strong class="price" data-price="18999">$ 18.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Essencial" data-aroma="Oriental" data-id="perfumeria-femenina-7">
-          <img src="assets/img/productos/perfumeria/femenina/perfumeria-femenina-7.jpg" class="card-img-top" alt="Perfumería Femenina 7">
-          <div class="card-body"><span class="badge badge-subcat me-2">Essencial</span><span class="badge bg-success-subtle text-success-emphasis me-2">Oriental</span>
-            <h5 class="card-title">Perfumería Femenina 7</h5>
-            <p class="card-text"><strong class="price" data-price="19999">$ 19.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Luna" data-aroma="Floral" data-id="perfumeria-femenina-8">
-          <img src="assets/img/productos/perfumeria/femenina/perfumeria-femenina-8.jpg" class="card-img-top" alt="Perfumería Femenina 8">
-          <div class="card-body"><span class="badge badge-subcat me-2">Luna</span><span class="badge bg-success-subtle text-success-emphasis me-2">Floral</span>
-            <h5 class="card-title">Perfumería Femenina 8</h5>
-            <p class="card-text"><strong class="price" data-price="20999">$ 20.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Kaiak" data-aroma="Acuático" data-id="perfumeria-masculina-1">
-          <img src="assets/img/productos/perfumeria/masculina/perfumeria-masculina-1.jpg" class="card-img-top" alt="Perfumería Masculina 1">
-          <div class="card-body"><span class="badge badge-subcat me-2">Kaiak</span><span class="badge bg-success-subtle text-success-emphasis me-2">Acuático</span>
-            <h5 class="card-title">Perfumería Masculina 1</h5>
-            <p class="card-text"><strong class="price" data-price="13999">$ 13.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Essencial" data-aroma="Amaderado" data-id="perfumeria-masculina-2">
-          <img src="assets/img/productos/perfumeria/masculina/perfumeria-masculina-2.jpg" class="card-img-top" alt="Perfumería Masculina 2">
-          <div class="card-body"><span class="badge badge-subcat me-2">Essencial</span><span class="badge bg-success-subtle text-success-emphasis me-2">Amaderado</span>
-            <h5 class="card-title">Perfumería Masculina 2</h5>
-            <p class="card-text"><strong class="price" data-price="14999">$ 14.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Homem" data-aroma="Especiado" data-id="perfumeria-masculina-3">
-          <img src="assets/img/productos/perfumeria/masculina/perfumeria-masculina-3.jpg" class="card-img-top" alt="Perfumería Masculina 3">
-          <div class="card-body"><span class="badge badge-subcat me-2">Homem</span><span class="badge bg-success-subtle text-success-emphasis me-2">Especiado</span>
-            <h5 class="card-title">Perfumería Masculina 3</h5>
-            <p class="card-text"><strong class="price" data-price="15999">$ 15.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Homem" data-aroma="Aromático" data-id="perfumeria-masculina-4">
-          <img src="assets/img/productos/perfumeria/masculina/perfumeria-masculina-4.jpg" class="card-img-top" alt="Perfumería Masculina 4">
-          <div class="card-body"><span class="badge badge-subcat me-2">Homem</span><span class="badge bg-success-subtle text-success-emphasis me-2">Aromático</span>
-            <h5 class="card-title">Perfumería Masculina 4</h5>
-            <p class="card-text"><strong class="price" data-price="16999">$ 16.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Homem" data-aroma="Amaderado" data-id="perfumeria-masculina-5">
-          <img src="assets/img/productos/perfumeria/masculina/perfumeria-masculina-5.jpg" class="card-img-top" alt="Perfumería Masculina 5">
-          <div class="card-body"><span class="badge badge-subcat me-2">Homem</span><span class="badge bg-success-subtle text-success-emphasis me-2">Amaderado</span>
-            <h5 class="card-title">Perfumería Masculina 5</h5>
-            <p class="card-text"><strong class="price" data-price="17999">$ 17.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Kaiak" data-aroma="Herbal" data-id="perfumeria-masculina-6">
-          <img src="assets/img/productos/perfumeria/masculina/perfumeria-masculina-6.jpg" class="card-img-top" alt="Perfumería Masculina 6">
-          <div class="card-body"><span class="badge badge-subcat me-2">Kaiak</span><span class="badge bg-success-subtle text-success-emphasis me-2">Herbal</span>
-            <h5 class="card-title">Perfumería Masculina 6</h5>
-            <p class="card-text"><strong class="price" data-price="18999">$ 18.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Kaiak" data-aroma="Acuático" data-id="perfumeria-masculina-7">
-          <img src="assets/img/productos/perfumeria/masculina/perfumeria-masculina-7.jpg" class="card-img-top" alt="Perfumería Masculina 7">
-          <div class="card-body"><span class="badge badge-subcat me-2">Kaiak</span><span class="badge bg-success-subtle text-success-emphasis me-2">Acuático</span>
-            <h5 class="card-title">Perfumería Masculina 7</h5>
-            <p class="card-text"><strong class="price" data-price="19999">$ 19.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Kaiak" data-aroma="Fresco" data-id="perfumeria-masculina-8">
-          <img src="assets/img/productos/perfumeria/masculina/perfumeria-masculina-8.jpg" class="card-img-top" alt="Perfumería Masculina 8">
-          <div class="card-body"><span class="badge badge-subcat me-2">Kaiak</span><span class="badge bg-success-subtle text-success-emphasis me-2">Fresco</span>
-            <h5 class="card-title">Perfumería Masculina 8</h5>
-            <p class="card-text"><strong class="price" data-price="20999">$ 20.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div></div>
-</section>
+      <div id="perfumeria-groups"><!-- JS inserta carruseles por subcat --></div>
+    </section>
 
-    <section id="cuidados" class="container py-5 category-anchor">
-      <h2 class="section-title mb-4">Cuidados diarios</h2>
-    <div class="row g-3"><div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Ekos/Tododia" data-aroma="Hidratante" data-id="cuidados-1">
-          <img src="assets/img/productos/cuidados/cuidados-1.jpg" class="card-img-top" alt="Cuidado Diario 1">
-          <div class="card-body"><span class="badge badge-subcat me-2">Ekos/Tododia</span><span class="badge bg-success-subtle text-success-emphasis me-2">Hidratante</span>
-            <h5 class="card-title">Cuidado Diario 1</h5>
-            <p class="card-text"><strong class="price" data-price="13999">$ 13.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Ekos/Tododia" data-aroma="Jabón" data-id="cuidados-2">
-          <img src="assets/img/productos/cuidados/cuidados-2.jpg" class="card-img-top" alt="Cuidado Diario 2">
-          <div class="card-body"><span class="badge badge-subcat me-2">Ekos/Tododia</span><span class="badge bg-success-subtle text-success-emphasis me-2">Jabón</span>
-            <h5 class="card-title">Cuidado Diario 2</h5>
-            <p class="card-text"><strong class="price" data-price="14999">$ 14.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Ekos/Tododia" data-aroma="Exfoliante" data-id="cuidados-3">
-          <img src="assets/img/productos/cuidados/cuidados-3.jpg" class="card-img-top" alt="Cuidado Diario 3">
-          <div class="card-body"><span class="badge badge-subcat me-2">Ekos/Tododia</span><span class="badge bg-success-subtle text-success-emphasis me-2">Exfoliante</span>
-            <h5 class="card-title">Cuidado Diario 3</h5>
-            <p class="card-text"><strong class="price" data-price="15999">$ 15.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Ekos/Tododia" data-aroma="Nutritivo" data-id="cuidados-4">
-          <img src="assets/img/productos/cuidados/cuidados-4.jpg" class="card-img-top" alt="Cuidado Diario 4">
-          <div class="card-body"><span class="badge badge-subcat me-2">Ekos/Tododia</span><span class="badge bg-success-subtle text-success-emphasis me-2">Nutritivo</span>
-            <h5 class="card-title">Cuidado Diario 4</h5>
-            <p class="card-text"><strong class="price" data-price="16999">$ 16.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Ekos/Tododia" data-aroma="Aromático" data-id="cuidados-5">
-          <img src="assets/img/productos/cuidados/cuidados-5.jpg" class="card-img-top" alt="Cuidado Diario 5">
-          <div class="card-body"><span class="badge badge-subcat me-2">Ekos/Tododia</span><span class="badge bg-success-subtle text-success-emphasis me-2">Aromático</span>
-            <h5 class="card-title">Cuidado Diario 5</h5>
-            <p class="card-text"><strong class="price" data-price="17999">$ 17.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Ekos/Tododia" data-aroma="Hidratante" data-id="cuidados-6">
-          <img src="assets/img/productos/cuidados/cuidados-6.jpg" class="card-img-top" alt="Cuidado Diario 6">
-          <div class="card-body"><span class="badge badge-subcat me-2">Ekos/Tododia</span><span class="badge bg-success-subtle text-success-emphasis me-2">Hidratante</span>
-            <h5 class="card-title">Cuidado Diario 6</h5>
-            <p class="card-text"><strong class="price" data-price="18999">$ 18.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Ekos/Tododia" data-aroma="Jabón" data-id="cuidados-7">
-          <img src="assets/img/productos/cuidados/cuidados-7.jpg" class="card-img-top" alt="Cuidado Diario 7">
-          <div class="card-body"><span class="badge badge-subcat me-2">Ekos/Tododia</span><span class="badge bg-success-subtle text-success-emphasis me-2">Jabón</span>
-            <h5 class="card-title">Cuidado Diario 7</h5>
-            <p class="card-text"><strong class="price" data-price="19999">$ 19.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Ekos/Tododia" data-aroma="Refill" data-id="cuidados-8">
-          <img src="assets/img/productos/cuidados/cuidados-8.jpg" class="card-img-top" alt="Cuidado Diario 8">
-          <div class="card-body"><span class="badge badge-subcat me-2">Ekos/Tododia</span><span class="badge bg-success-subtle text-success-emphasis me-2">Refill</span>
-            <h5 class="card-title">Cuidado Diario 8</h5>
-            <p class="card-text"><strong class="price" data-price="20999">$ 20.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div></div>
-</section>
+    <!-- CUIDADOS (una fila horizontal con flechas) -->
+    <section id="cuidados" class="container py-5">
+      <h2 class="section-title mb-3">Cuidados diarios</h2>
+      <div class="carousel-row">
+        <button class="carousel-btn prev" data-target="row-cuidados" aria-label="Anterior">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <div class="products-row" id="row-cuidados"></div>
+        <button class="carousel-btn next" data-target="row-cuidados" aria-label="Siguiente">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    </section>
 
-    <section id="maquillaje" class="container py-5 category-anchor">
-      <h2 class="section-title mb-4">Maquillaje</h2>
-    <div class="row g-3"><div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="UNA/Faces" data-aroma="Labios" data-id="maquillaje-1">
-          <img src="assets/img/productos/maquillaje/maquillaje-1.jpg" class="card-img-top" alt="Maquillaje 1">
-          <div class="card-body"><span class="badge badge-subcat me-2">UNA/Faces</span><span class="badge bg-success-subtle text-success-emphasis me-2">Labios</span>
-            <h5 class="card-title">Maquillaje 1</h5>
-            <p class="card-text"><strong class="price" data-price="13999">$ 13.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="UNA/Faces" data-aroma="Ojos" data-id="maquillaje-2">
-          <img src="assets/img/productos/maquillaje/maquillaje-2.jpg" class="card-img-top" alt="Maquillaje 2">
-          <div class="card-body"><span class="badge badge-subcat me-2">UNA/Faces</span><span class="badge bg-success-subtle text-success-emphasis me-2">Ojos</span>
-            <h5 class="card-title">Maquillaje 2</h5>
-            <p class="card-text"><strong class="price" data-price="14999">$ 14.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="UNA/Faces" data-aroma="Pestañas" data-id="maquillaje-3">
-          <img src="assets/img/productos/maquillaje/maquillaje-3.jpg" class="card-img-top" alt="Maquillaje 3">
-          <div class="card-body"><span class="badge badge-subcat me-2">UNA/Faces</span><span class="badge bg-success-subtle text-success-emphasis me-2">Pestañas</span>
-            <h5 class="card-title">Maquillaje 3</h5>
-            <p class="card-text"><strong class="price" data-price="15999">$ 15.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="UNA/Faces" data-aroma="Pestañas" data-id="maquillaje-4">
-          <img src="assets/img/productos/maquillaje/maquillaje-4.jpg" class="card-img-top" alt="Maquillaje 4">
-          <div class="card-body"><span class="badge badge-subcat me-2">UNA/Faces</span><span class="badge bg-success-subtle text-success-emphasis me-2">Pestañas</span>
-            <h5 class="card-title">Maquillaje 4</h5>
-            <p class="card-text"><strong class="price" data-price="16999">$ 16.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="UNA/Faces" data-aroma="Labios" data-id="maquillaje-5">
-          <img src="assets/img/productos/maquillaje/maquillaje-5.jpg" class="card-img-top" alt="Maquillaje 5">
-          <div class="card-body"><span class="badge badge-subcat me-2">UNA/Faces</span><span class="badge bg-success-subtle text-success-emphasis me-2">Labios</span>
-            <h5 class="card-title">Maquillaje 5</h5>
-            <p class="card-text"><strong class="price" data-price="17999">$ 17.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="UNA/Faces" data-aroma="Preparador" data-id="maquillaje-6">
-          <img src="assets/img/productos/maquillaje/maquillaje-6.jpg" class="card-img-top" alt="Maquillaje 6">
-          <div class="card-body"><span class="badge badge-subcat me-2">UNA/Faces</span><span class="badge bg-success-subtle text-success-emphasis me-2">Preparador</span>
-            <h5 class="card-title">Maquillaje 6</h5>
-            <p class="card-text"><strong class="price" data-price="18999">$ 18.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="UNA/Faces" data-aroma="Tratamiento" data-id="maquillaje-7">
-          <img src="assets/img/productos/maquillaje/maquillaje-7.jpg" class="card-img-top" alt="Maquillaje 7">
-          <div class="card-body"><span class="badge badge-subcat me-2">UNA/Faces</span><span class="badge bg-success-subtle text-success-emphasis me-2">Tratamiento</span>
-            <h5 class="card-title">Maquillaje 7</h5>
-            <p class="card-text"><strong class="price" data-price="19999">$ 19.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="UNA/Faces" data-aroma="Delineado" data-id="maquillaje-8">
-          <img src="assets/img/productos/maquillaje/maquillaje-8.jpg" class="card-img-top" alt="Maquillaje 8">
-          <div class="card-body"><span class="badge badge-subcat me-2">UNA/Faces</span><span class="badge bg-success-subtle text-success-emphasis me-2">Delineado</span>
-            <h5 class="card-title">Maquillaje 8</h5>
-            <p class="card-text"><strong class="price" data-price="20999">$ 20.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div></div>
-</section>
+    <!-- MAQUILLAJE -->
+    <section id="maquillaje" class="container py-5">
+      <h2 class="section-title mb-3">Maquillaje</h2>
+      <div class="carousel-row">
+        <button class="carousel-btn prev" data-target="row-maquillaje" aria-label="Anterior">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <div class="products-row" id="row-maquillaje"></div>
+        <button class="carousel-btn next" data-target="row-maquillaje" aria-label="Siguiente">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    </section>
 
-    <section id="regalos" class="container py-5 category-anchor">
-      <h2 class="section-title mb-4">Regalos</h2>
-    <div class="row g-3"><div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Set Regalo" data-aroma="Jabones" data-id="regalos-1">
-          <img src="assets/img/productos/regalos/regalos-1.jpg" class="card-img-top" alt="Regalo 1">
-          <div class="card-body"><span class="badge badge-subcat me-2">Set Regalo</span><span class="badge bg-success-subtle text-success-emphasis me-2">Jabones</span>
-            <h5 class="card-title">Regalo 1</h5>
-            <p class="card-text"><strong class="price" data-price="13999">$ 13.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Set Regalo" data-aroma="Dúo Fragancia" data-id="regalos-2">
-          <img src="assets/img/productos/regalos/regalos-2.jpg" class="card-img-top" alt="Regalo 2">
-          <div class="card-body"><span class="badge badge-subcat me-2">Set Regalo</span><span class="badge bg-success-subtle text-success-emphasis me-2">Dúo Fragancia</span>
-            <h5 class="card-title">Regalo 2</h5>
-            <p class="card-text"><strong class="price" data-price="14999">$ 14.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Set Regalo" data-aroma="Kit Maquillaje" data-id="regalos-3">
-          <img src="assets/img/productos/regalos/regalos-3.jpg" class="card-img-top" alt="Regalo 3">
-          <div class="card-body"><span class="badge badge-subcat me-2">Set Regalo</span><span class="badge bg-success-subtle text-success-emphasis me-2">Kit Maquillaje</span>
-            <h5 class="card-title">Regalo 3</h5>
-            <p class="card-text"><strong class="price" data-price="15999">$ 15.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Set Regalo" data-aroma="Aromatizador" data-id="regalos-4">
-          <img src="assets/img/productos/regalos/regalos-4.jpg" class="card-img-top" alt="Regalo 4">
-          <div class="card-body"><span class="badge badge-subcat me-2">Set Regalo</span><span class="badge bg-success-subtle text-success-emphasis me-2">Aromatizador</span>
-            <h5 class="card-title">Regalo 4</h5>
-            <p class="card-text"><strong class="price" data-price="16999">$ 16.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Set Regalo" data-aroma="Mirada" data-id="regalos-5">
-          <img src="assets/img/productos/regalos/regalos-5.jpg" class="card-img-top" alt="Regalo 5">
-          <div class="card-body"><span class="badge badge-subcat me-2">Set Regalo</span><span class="badge bg-success-subtle text-success-emphasis me-2">Mirada</span>
-            <h5 class="card-title">Regalo 5</h5>
-            <p class="card-text"><strong class="price" data-price="17999">$ 17.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div>
-<div class="col-12 col-sm-6 col-lg-3">
-        <div class="card h-100" data-subcat="Set Regalo" data-aroma="Packaging" data-id="regalos-6">
-          <img src="assets/img/productos/regalos/regalos-6.jpg" class="card-img-top" alt="Regalo 6">
-          <div class="card-body"><span class="badge badge-subcat me-2">Set Regalo</span><span class="badge bg-success-subtle text-success-emphasis me-2">Packaging</span>
-            <h5 class="card-title">Regalo 6</h5>
-            <p class="card-text"><strong class="price" data-price="18999">$ 18.999</strong></p>
-            <button class="btn btn-brand w-100" data-add-to-cart>Agregar</button>
-          </div>
-        </div></div>
-</section>
+    <!-- REGALOS -->
+    <section id="regalos" class="container py-5">
+      <h2 class="section-title mb-3">Regalos</h2>
+      <div class="carousel-row">
+        <button class="carousel-btn prev" data-target="row-regalos" aria-label="Anterior">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <div class="products-row" id="row-regalos"></div>
+        <button class="carousel-btn next" data-target="row-regalos" aria-label="Siguiente">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    </section>
   </main>
 
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="carrito">
+  <!-- CARRITO -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="carrito" aria-labelledby="carritoLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title">Carrito de compras</h5>
+      <h5 class="offcanvas-title" id="carritoLabel">Carrito de compras</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
@@ -437,10 +153,11 @@
     </div>
   </div>
 
-  <footer class="text-center py-4 bg-light mt-5">
+  <footer class="text-center py-4">
     <p class="mb-0">© 2025 Pura Belleza. Todos los derechos reservados.</p>
   </footer>
 
+  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
