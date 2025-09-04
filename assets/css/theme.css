@@ -61,12 +61,29 @@ a{ color: inherit; text-decoration: none; }
   margin-bottom: 1rem;
 }
 
-/* 
-   Hero (video)
-    */
+
+/* Hero con degradado */
 .hero-video{
   background: linear-gradient(180deg, var(--brand-3), transparent 35%);
 }
+
+/* Hero Video Responsive */
+.video-wrap{
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* formato horizontal */
+  position: relative;
+  overflow: hidden;
+}
+
+.video-wrap video{
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* llena el área sin deformar */
+}
+
+
 
 /* 
   Carruseles horizontales responsivos

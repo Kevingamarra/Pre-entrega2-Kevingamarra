@@ -53,14 +53,17 @@
 
   <main class="mt-5 pt-4" id="inicio">
     <!-- HERO con video -->
-    <section class="hero-video position-relative mb-4">
-      <div class="container">
-        <video class="w-100 rounded shadow" autoplay muted loop playsinline poster="assets/img/poster.jpg">
-          <source src="assets/video/Video-principal.mp4" type="video/mp4">
-          Tu navegador no soporta video HTML5.
-        </video>
-      </div>
-    </section>
+    <section class="hero-video position-relative mb-4" id="inicio">
+  <div class="container-fluid p-0">
+    <div class="video-wrap">
+      <video autoplay muted loop playsinline poster="assets/img/poster.jpg">
+        <source src="assets/video/Video-principal.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+      </video>
+    </div>
+  </div>
+</section>
+
 
     <!-- PERFUMERÍA (dinámica desde JS) -->
     <section id="perfumeria" class="container py-5">
