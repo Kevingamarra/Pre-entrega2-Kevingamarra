@@ -1,17 +1,18 @@
-
+/* ----DATA ---- */
 /* PERFUMERÍA */
 const products = [
   // Femenina
-  { id:'pf1', name:'Pitangá Frescor',     price:13999, img:'assets/img/productos/perfumeria-femenina1.jpg', category:'perfumeria', subcat:'Kaiak',     aromas:['Acuático'] },
-  { id:'pf4', name:'Kriska Shock',        price:12999, img:'assets/img/productos/perfumeria-femenina4.jpg', category:'perfumeria', subcat:'Kriska',    aromas:['Frutal'] },
-  { id:'pf5', name:'Humor Própria',       price:11999, img:'assets/img/productos/perfumeria-femenina5.jpg', category:'perfumeria', subcat:'Humor',     aromas:['Frutal'] },
-  { id:'pf8', name:'Luna Rubí',           price:14499, img:'assets/img/productos/perfumeria-femenina8.jpg', category:'perfumeria', subcat:'Luna',      aromas:['Floral'] },
+  { id:'pf1', name:'Pitangá Frescor',     price:13999, img:'assets/img/productos/perfumeria/femenina/perfumeria-femenina-1.jpg', category:'perfumeria', subcat:'Kaiak',     aromas:['Acuático'] },
+  { id:'pf4', name:'Kriska Shock',        price:12999, img:'assets/img/productos/perfumeria/femenina/perfumeria-femenina-4.jpg', category:'perfumeria', subcat:'Kriska',    aromas:['Frutal'] },
+  { id:'pf5', name:'Humor Própria',       price:11999, img:'assets/img/productos/perfumeria/femenina/perfumeria-femenina-5.jpg', category:'perfumeria', subcat:'Humor',     aromas:['Frutal'] },
+  { id:'pf8', name:'Luna Rubí',           price:14499, img:'assets/img/productos/perfumeria/femenina/perfumeria-femenina-8.jpg', category:'perfumeria', subcat:'Luna',      aromas:['Floral'] },
+
   // Masculina
-  { id:'pm2', name:'Essencial Oud',       price:21999, img:'assets/img/productos/perfumeria-masculina2.jpg', category:'perfumeria', subcat:'Essencial', aromas:['Amaderado'] },
-  { id:'pm3', name:'HOMEM Potence',       price:18999, img:'assets/img/productos/perfumeria-masculina3.jpg', category:'perfumeria', subcat:'Otros',     aromas:['Especiado'] },
-  { id:'pm6', name:'Kaiak Urbe',          price:15999, img:'assets/img/productos/perfumeria-masculina6.jpg', category:'perfumeria', subcat:'Kaiak',     aromas:['Acuático'] },
-  { id:'pm7', name:'Kaiak Aventura',      price:15999, img:'assets/img/productos/perfumeria-masculina7.jpg', category:'perfumeria', subcat:'Kaiak',     aromas:['Acuático'] },
-  { id:'pm8', name:'Kaiak Oceano',        price:16999, img:'assets/img/productos/perfumeria-masculina8.jpg', category:'perfumeria', subcat:'Kaiak',     aromas:['Acuático'] },
+  { id:'pm2', name:'Essencial Oud',       price:21999, img:'assets/img/productos/perfumeria/masculina/perfumeria-masculina-2.jpg', category:'perfumeria', subcat:'Essencial', aromas:['Amaderado'] },
+  { id:'pm3', name:'HOMEM Potence',       price:18999, img:'assets/img/productos/perfumeria/masculina/perfumeria-masculina-3.jpg', category:'perfumeria', subcat:'Otros',     aromas:['Especiado'] },
+  { id:'pm6', name:'Kaiak Urbe',          price:15999, img:'assets/img/productos/perfumeria/masculina/perfumeria-masculina-6.jpg', category:'perfumeria', subcat:'Kaiak',     aromas:['Acuático'] },
+  { id:'pm7', name:'Kaiak Aventura',      price:15999, img:'assets/img/productos/perfumeria/masculina/perfumeria-masculina-7.jpg', category:'perfumeria', subcat:'Kaiak',     aromas:['Acuático'] },
+  { id:'pm8', name:'Kaiak Oceano',        price:16999, img:'assets/img/productos/perfumeria/masculina/perfumeria-masculina-8.jpg', category:'perfumeria', subcat:'Kaiak',     aromas:['Acuático'] },
 ];
 
 const SUBCAT_ORDER = ['Kaiak','Essencial','Kriska','Luna','Humor','Otros'];
@@ -19,36 +20,37 @@ const currentFilters = { subcat:'*', aroma:'*' };
 
 /* CUIDADOS DIARIOS */
 const productosCuidados = [
-  { id:'cd1', name:'Tododia Cereza Negra – Crema 400 ml',     price:8999,  img:'assets/img/productos/cuidados-diarios1.jpg', subcat:'Tododia' },
-  { id:'cd2', name:'Tododia Body Splash Cereza Negra 200 ml', price:7999,  img:'assets/img/productos/cuidados-diarios2.jpg', subcat:'Tododia' },
-  { id:'cd3', name:'Jabón en barra Tododia (x5)',             price:6499,  img:'assets/img/productos/cuidados-diarios3.jpg', subcat:'Tododia' },
-  { id:'cd5', name:'Ekos Mini Jabones Surtidos',              price:6999,  img:'assets/img/productos/cuidados-diarios5.jpg', subcat:'Ekos' },
-  { id:'cd6', name:'Ekos Castanha Pulpa corporal 400 ml',     price:9999,  img:'assets/img/productos/cuidados-diarios6.jpg', subcat:'Ekos' },
-  { id:'cd8', name:'Tododia Refil 400 ml',                    price:5999,  img:'assets/img/productos/cuidados-diarios8.jpg', subcat:'Tododia' },
+  { id:'cd1', name:'Tododia Cereza Negra – Crema 400 ml',     price:8999,  img:'assets/img/productos/cuidados/cuidados-1.jpg', subcat:'Tododia' },
+  { id:'cd2', name:'Tododia Body Splash Cereza Negra 200 ml', price:7999,  img:'assets/img/productos/cuidados/cuidados-2.jpg', subcat:'Tododia' },
+  { id:'cd3', name:'Jabón en barra Tododia (x5)',             price:6499,  img:'assets/img/productos/cuidados/cuidados-3.jpg', subcat:'Tododia' },
+  { id:'cd4', name:'Ekos Mini Jabones Surtidos',              price:6999,  img:'assets/img/productos/cuidados/cuidados-4.jpg', subcat:'Ekos' },
+  { id:'cd5', name:'Ekos Castanha Pulpa corporal 400 ml',     price:9999,  img:'assets/img/productos/cuidados/cuidados-5.jpg', subcat:'Ekos' },
+  { id:'cd6', name:'Tododia Refil 400 ml',                    price:5999,  img:'assets/img/productos/cuidados/cuidados-6.jpg', subcat:'Tododia' },
 ];
 
 /* MAQUILLAJE */
 const productosMaquillaje = [
-  { id:'mq1', name:'UNA Cushion Base',      price:10999, img:'assets/img/productos/maquillajes1.jpg',      subcat:'UNA' },
-  { id:'mq2', name:'UNA Gloss FPS15',       price:6999,  img:'assets/img/productos/maquillajes2jpg.jpg',   subcat:'UNA' },
-  { id:'mq3', name:'FACES Máscara Negra',   price:5499,  img:'assets/img/productos/maquillajes3.jpg',      subcat:'FACES' },
-  { id:'mq4', name:'UNA Máscara Magnífico', price:8499,  img:'assets/img/productos/maquillajes4.jpg',      subcat:'UNA' },
-  { id:'mq5', name:'FACES Labial',          price:5999,  img:'assets/img/productos/maquillajes5jpg.jpg',   subcat:'FACES' },
-  { id:'mq6', name:'UNA Primer Blur',       price:7999,  img:'assets/img/productos/maquillajes6.jpg',      subcat:'UNA' },
-  { id:'mq7', name:'UNA Serum Pestañas',    price:9999,  img:'assets/img/productos/maquillajes7.jpg',      subcat:'UNA' },
-  { id:'mq8', name:'UNA Delineador',        price:6499,  img:'assets/img/productos/maquillajes8.jpg',      subcat:'UNA' },
+  { id:'mq1', name:'UNA Cushion Base',      price:10999, img:'assets/img/productos/maquillaje/maquillaje-1.jpg', subcat:'UNA' },
+  { id:'mq2', name:'UNA Gloss FPS15',       price:6999,  img:'assets/img/productos/maquillaje/maquillaje-2.jpg', subcat:'UNA' },
+  { id:'mq3', name:'FACES Máscara Negra',   price:5499,  img:'assets/img/productos/maquillaje/maquillaje-3.jpg', subcat:'FACES' },
+  { id:'mq4', name:'UNA Máscara Magnífico', price:8499,  img:'assets/img/productos/maquillaje/maquillaje-4.jpg', subcat:'UNA' },
+  { id:'mq5', name:'FACES Labial',          price:5999,  img:'assets/img/productos/maquillaje/maquillaje-5.jpg', subcat:'FACES' },
+  { id:'mq6', name:'UNA Primer Blur',       price:7999,  img:'assets/img/productos/maquillaje/maquillaje-6.jpg', subcat:'UNA' },
+  { id:'mq7', name:'UNA Serum Pestañas',    price:9999,  img:'assets/img/productos/maquillaje/maquillaje-7.jpg', subcat:'UNA' },
+  { id:'mq8', name:'UNA Delineador',        price:6499,  img:'assets/img/productos/maquillaje/maquillaje-8.jpg', subcat:'UNA' },
 ];
 
 /* REGALOS */
 const productosRegalos = [
-  { id:'rg1', name:'Set Tododia jabones (edición)', price:7999,  img:'assets/img/productos/regalos1.jpg', subcat:'Sets' },
-  { id:'rg2', name:'Kaiak Vital Dúo',               price:21999, img:'assets/img/productos/regalos2.jpg', subcat:'Perfumería' },
-  { id:'rg3', name:'Kit UNA Mirada',                price:16999, img:'assets/img/productos/regalos3.jpg', subcat:'Maquillaje' },
-  { id:'rg4', name:'Spray de ambientes Todanoite',  price:10999, img:'assets/img/productos/regalos4.jpg', subcat:'Hogar' },
-  { id:'rg5', name:'Bolsa de regalo Natura',        price:1999,  img:'assets/img/productos/regalos6.jpg', subcat:'Accesorios' },
+  { id:'rg1', name:'Set Tododia jabones (edición)', price:7999,  img:'assets/img/productos/regalos/regalos-1.jpg', subcat:'Sets' },
+  { id:'rg2', name:'Kaiak Vital Dúo',               price:21999, img:'assets/img/productos/regalos/regalos-2.jpg', subcat:'Perfumería' },
+  { id:'rg3', name:'Kit UNA Mirada',                price:16999, img:'assets/img/productos/regalos/regalos-3.jpg', subcat:'Maquillaje' },
+  { id:'rg4', name:'Spray de ambientes Todanoite',  price:10999, img:'assets/img/productos/regalos/regalos-4.jpg', subcat:'Hogar' },
+  { id:'rg5', name:'Bolsa de regalo Natura',        price:1999,  img:'assets/img/productos/regalos/regalos-5.jpg', subcat:'Accesorios' },
+  { id:'rg6', name:'Set regalo mini',               price:9999,  img:'assets/img/productos/regalos/regalos-6.jpg', subcat:'Sets' },
 ];
 
-/* ---- Utilidades ----*/
+/* ----Utilidades ---- */
 const slug = s => (s || 'otros').toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');
 
 /* ---- Render Perfumería ---- */
@@ -112,7 +114,7 @@ function cardProductHTML(p){
   `;
 }
 
-/* ---- Flechas carrusel ---- */
+/* ---- Flechas carrusel ----*/
 function initRowNavButtons(){
   document.querySelectorAll('.carousel-btn').forEach(btn=>{
     const targetId = btn.getAttribute('data-target');
@@ -175,7 +177,7 @@ function attachRowNav(rowId){
   });
 }
 
-/* ---- Buscador ----*/
+/* ----Buscador ---- */
 document.querySelector('form[role="search"]')?.addEventListener('submit', (e)=>{
   e.preventDefault();
   const q = (document.getElementById('searchProducts')?.value || '').toLowerCase().trim();
@@ -197,7 +199,7 @@ document.querySelector('form[role="search"]')?.addEventListener('submit', (e)=>{
   initRowNavButtons();
 });
 
-/* ---- Carrito ----*/
+/* ---- Carrito ---- */
 let cart = [];
 function addToCart(prod){ cart.push(prod); updateCart(); }
 function updateCart(){
@@ -216,14 +218,16 @@ function updateCart(){
 document.addEventListener('click', e=>{
   const id = e.target?.getAttribute?.('data-add');
   if(id){
-    const prod = [...products, ...productosCuidados, ...productosMaquillaje, ...productosRegalos].find(p=>p.id===id);
+    const all = [...products, ...productosCuidados, ...productosMaquillaje, ...productosRegalos];
+    const prod = all.find(p=>p.id===id);
     if(prod) addToCart(prod);
   }
 });
 document.getElementById('btnClearCart')?.addEventListener('click', ()=>{ cart=[]; updateCart(); });
 
-/* ----Inicio ----*/
+/* ----Inicio ---- */
 document.addEventListener('DOMContentLoaded', ()=>{
+  // Filtros de perfumería
   document.querySelectorAll('#perfumeria [data-subcat]').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       document.querySelectorAll('#perfumeria [data-subcat]').forEach(b=>b.classList.remove('active'));
@@ -239,6 +243,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   });
 
+  // Render inicial
   renderPerfumeria();
   renderCarouselSimple('row-cuidados',   productosCuidados);
   renderCarouselSimple('row-maquillaje', productosMaquillaje);
