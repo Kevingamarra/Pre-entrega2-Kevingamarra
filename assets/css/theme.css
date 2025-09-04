@@ -8,37 +8,160 @@
   --text:#222;
 }
 
-/* General */
-body{ background: var(--brand-5); color: var(--text); }
-.navbar{ background: #fff; }
-.nav-link{ color: var(--brand-2); }
-.nav-link:hover{ color: var(--brand-1); }
 
-/* Botones */
-.btn-brand{ background: var(--brand-1); border-color: var(--brand-1); color:#fff; }
-.btn-brand:hover{ background: var(--brand-2); border-color: var(--brand-2); }
-.btn-outline-brand{ color: var(--brand-2); border-color: var(--brand-4); }
-.btn-outline-brand:hover{ background: var(--brand-3); border-color: var(--brand-2); color: var(--brand-2); }
+/* ----Base----*/
+body{
+  font-family: 'Natura Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--brand-5);
+  color: var(--text);
+}
 
-/* Productos */
-.products-row{ display:flex; gap:1rem; overflow-x:auto; scroll-snap-type:x mandatory; }
-.products-row .product{ flex:0 0 220px; scroll-snap-align:start; }
-.card .card-title{ color:var(--text); }
-.badge-subcat{ background: var(--brand-3); color: var(--brand-2); border:1px solid var(--brand-4); }
+/* ----Navbar ----*/
+.navbar{
+  background: var(--brand-1);
+}
+.navbar .navbar-brand{ color: var(--brand-5); font-weight: 700; }
+.navbar .nav-link{ color: var(--brand-5); }
+.navbar .nav-link:hover{ color: var(--brand-3); }
 
-/* Carrusel */
-.carousel-btn{ border:none; background:transparent; color:var(--brand-2); font-size:1.5rem; }
-.carousel-btn:disabled{ opacity:0.3; cursor:not-allowed; }
+/*---- Botones ----*/
+.btn-brand{
+  background: var(--brand-1);
+  color: #fff;
+  border: none;
+}
+.btn-brand:hover{ background: var(--brand-2); color:#fff; }
 
-/* Hero */
-.hero-video{ background: linear-gradient(180deg, var(--brand-3), transparent 35%); }
+.btn-outline-brand{
+  color: var(--brand-1);
+  border-color: var(--brand-1);
+  background: transparent;
+}
+.btn-outline-brand:hover{
+  background: var(--brand-3);
+  color: var(--brand-2);
+  border-color: var(--brand-2);
+}
 
-/* Info final */
-.info-section{ background-color:#fed0e3; }
-.info-section h3.section-title{ color:var(--brand-2); }
-.info-section h5{ font-weight:600; color:var(--brand-1); }
+/* ----Títulos ----*/
+.section-title{
+  color: var(--brand-1);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
 
-/* WhatsApp */
+/* ----HERO ----*/
+.hero-video{
+  background: linear-gradient(180deg, var(--brand-3), transparent 35%);
+}
+
+/* ----Carruseles ----*/
+.carousel-row{
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: .5rem;
+  align-items: center;
+}
+
+.products-row{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(220px, 280px);
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  padding: .25rem;
+}
+
+.card.product{
+  scroll-snap-align: start;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--brand-3);
+  background: #fff;
+}
+
+/* Imagen responsiva */
+.card.product .img-wrap{
+  width: 100%;
+  aspect-ratio: 3 / 4;       /* frascos y envases verticales */
+  background: var(--brand-5);
+  position: relative;
+  overflow: hidden;
+}
+.card.product .img-wrap img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Cuerpo */
+.card.product .card-body{
+  padding: .9rem .9rem 0.7rem;
+  background: #fff;
+  color: var(--text);
+}
+.card.product .title{ font-size: 1rem; line-height: 1.25; margin: 0 0 .4rem; }
+.card.product .price{ color: var(--brand-2); font-weight: 700; }
+
+/* Flechas */
+.carousel-btn{
+  border: 1px solid var(--brand-1);
+  background: var(--brand-5);
+  color: var(--brand-1);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+.carousel-btn:disabled{ opacity:.35; cursor:not-allowed; }
+
+/* ---- Badges ----*/
+.badge-subcat{
+  background: var(--brand-3);
+  color: var(--brand-2);
+  border: 1px solid var(--brand-4);
+  padding: .25rem .5rem;
+  border-radius: 999px;
+  font-size: .75rem;
+}
+.badge-aroma{
+  background: #fff;
+  color: var(--brand-1);
+  border: 1px solid var(--brand-1);
+  padding: .2rem .45rem;
+  border-radius: 999px;
+  font-size: .7rem;
+}
+
+/* ----Responsive ---- */
+@media (max-width: 575.98px){
+  .products-row{ grid-auto-columns: 78vw; gap: .75rem; }
+  .card.product .title{ font-size: 1.05rem; }
+}
+@media (min-width: 576px) and (max-width: 991.98px){
+  .products-row{ grid-auto-columns: 44vw; }
+}
+@media (min-width: 992px){
+  .products-row{ grid-auto-columns: minmax(240px, 300px); }
+}
+
+/* ----Info / Soporte ----*/
+.info-section{ background: var(--brand-3); }
+.info-section h3.section-title{ color: var(--brand-2); }
+.info-section h5{ color: var(--brand-1); font-weight: 700; }
+
+/* ---- WhatsApp flotante ---- */
 .whatsapp-float{
   position: fixed; right:18px; bottom:18px;
   width:56px; height:56px; border-radius:50%;

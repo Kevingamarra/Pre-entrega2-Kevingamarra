@@ -1,64 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pura Belleza - Cosméticos</title>
+
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Estilos externos -->
+
+  <!-- Tipografía Natura -->
+  <link href="https://cdn.jsdelivr.net/npm/@naturacosmeticos/natds-themes@latest/dist/assets/natura_fonts.css" rel="stylesheet">
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="assets/css/theme.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="navbar navbar-expand-lg fixed-top">
+  <!-- NAVBAR -->
+  <header class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center" href="#inicio">
         <img src="assets/img/logo.png" alt="Pura Belleza" height="40" class="me-2">
         Pura Belleza
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="#perfumeria">Perfumería</a></li>
-          <li class="nav-item"><a class="nav-link" href="#cuidados">Cuidados diarios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cuidados">Cuidados</a></li>
           <li class="nav-item"><a class="nav-link" href="#maquillaje">Maquillaje</a></li>
           <li class="nav-item"><a class="nav-link" href="#regalos">Regalos</a></li>
         </ul>
-        <form class="d-flex ms-3" role="search">
-          <input class="form-control me-2" type="search" id="searchProducts" placeholder="Buscar productos...">
+
+        <!-- Buscador -->
+        <form class="d-flex ms-lg-3 mt-3 mt-lg-0" role="search">
+          <input class="form-control me-2" id="searchProducts" type="search" placeholder="Buscar productos...">
           <button class="btn btn-outline-brand" type="submit"><i class="bi bi-search"></i></button>
         </form>
-        <button class="btn btn-brand ms-3" data-bs-toggle="offcanvas" data-bs-target="#carrito">
+
+        <!-- Carrito -->
+        <button class="btn btn-brand ms-2 ms-lg-3 mt-3 mt-lg-0" data-bs-toggle="offcanvas" data-bs-target="#carrito">
           <i class="bi bi-cart"></i>
-          <span id="cartBadge" class="badge bg-danger rounded-pill ms-1">0</span>
+          <span id="cartBadge" class="badge bg-light text-dark rounded-pill ms-1">0</span>
         </button>
       </div>
     </div>
   </header>
 
-  <main class="mt-5 pt-4">
+  <main class="mt-5 pt-4" id="inicio">
     <!-- HERO con video -->
-    <section class="hero-video position-relative mb-4" id="inicio">
+    <section class="hero-video position-relative mb-4">
       <div class="container">
-        <div class="ratio ratio-16x9 rounded-lg shadow-brand overflow-hidden">
-          <video autoplay muted loop playsinline poster="assets/img/poster.jpg">
-            <source src="assets/video/Video-principal.mp4" type="video/mp4">
-            Tu navegador no soporta video.
-          </video>
-        </div>
+        <video class="w-100 rounded shadow" autoplay muted loop playsinline poster="assets/img/poster.jpg">
+          <source src="assets/video/Video-principal.mp4" type="video/mp4">
+          Tu navegador no soporta video HTML5.
+        </video>
       </div>
     </section>
 
-    <!-- Secciones de productos -->
+    <!-- PERFUMERÍA (dinámica desde JS) -->
     <section id="perfumeria" class="container py-5">
       <h2 class="section-title">Perfumería</h2>
+
+      <!-- Filtros por subcategoría  -->
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <button class="btn btn-outline-brand active" data-subcat="*">Todas</button>
+        <button class="btn btn-outline-brand" data-subcat="Kaiak">Kaiak</button>
+        <button class="btn btn-outline-brand" data-subcat="Essencial">Essencial</button>
+        <button class="btn btn-outline-brand" data-subcat="Kriska">Kriska</button>
+        <button class="btn btn-outline-brand" data-subcat="Luna">Luna</button>
+        <button class="btn btn-outline-brand" data-subcat="Humor">Humor</button>
+        <button class="btn btn-outline-brand" data-subcat="Otros">Otros</button>
+      </div>
+
+      <!-- Filtro aroma  -->
+      <div class="dropdown mb-4" id="aromaMenu">
+        <button class="btn btn-outline-brand dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Aroma
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#" data-aroma="*">Todos</a></li>
+          <li><a class="dropdown-item" href="#" data-aroma="Acuático">Acuático</a></li>
+          <li><a class="dropdown-item" href="#" data-aroma="Floral">Floral</a></li>
+          <li><a class="dropdown-item" href="#" data-aroma="Amaderado">Amaderado</a></li>
+          <li><a class="dropdown-item" href="#" data-aroma="Frutal">Frutal</a></li>
+          <li><a class="dropdown-item" href="#" data-aroma="Especiado">Especiado</a></li>
+        </ul>
+      </div>
+
+      <!-- Aca el JS inyecta los grupos por subcategoría con carrusel -->
       <div id="perfumeria-groups"></div>
     </section>
 
+    <!-- CUIDADOS DIARIOS -->
     <section id="cuidados" class="container py-5">
       <h2 class="section-title">Cuidados diarios</h2>
       <div class="carousel-row">
@@ -68,6 +106,7 @@
       </div>
     </section>
 
+    <!-- MAQUILLAJE -->
     <section id="maquillaje" class="container py-5">
       <h2 class="section-title">Maquillaje</h2>
       <div class="carousel-row">
@@ -77,6 +116,7 @@
       </div>
     </section>
 
+    <!-- REGALOS -->
     <section id="regalos" class="container py-5">
       <h2 class="section-title">Regalos</h2>
       <div class="carousel-row">
@@ -87,11 +127,11 @@
     </section>
   </main>
 
-  <!-- Info final -->
+  <!-- INFO / AYUDA / SOPORTE -->
   <section class="container-fluid py-5 info-section border-top" id="info-natura">
     <div class="container">
       <div class="row g-4">
-        <!-- IZQUIERDA -->
+        <!-- Izquierda: Encontrá Natura -->
         <div class="col-12 col-lg-6 text-lg-start">
           <h3 class="section-title mb-3">Encontrá Natura</h3>
           <p class="mb-3">
@@ -103,7 +143,8 @@
             Al día de la última comunicación pública, no hay productos bajo procesos de Alerta y Retiro.
           </p>
         </div>
-        <!-- DERECHA -->
+
+        <!-- Derecha: Soporte -->
         <div class="col-12 col-lg-6 text-lg-end">
           <h3 class="section-title mb-3">Soporte</h3>
           <h5 class="mb-2">Políticas de privacidad</h5>
@@ -119,10 +160,10 @@
     </div>
   </section>
 
-  <!-- Offcanvas Carrito -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="carrito">
+  <!-- OFFCANVAS CARRITO -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="carrito" aria-labelledby="carritoLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title">Carrito de compras</h5>
+      <h5 class="offcanvas-title" id="carritoLabel">Carrito de compras</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
@@ -137,12 +178,12 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="text-center py-4 bg-light mt-5">
+  <!-- FOOTER SIMPLE -->
+  <footer class="text-center py-4 bg-light mt-0">
     <p class="mb-0">© 2025 Pura Belleza. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- WhatsApp flotante -->
+  <!-- WHATSAPP FLOAT -->
   <a class="whatsapp-float" href="https://wa.me/message/7RVH5VNLVO7GP1" target="_blank" rel="noopener" aria-label="WhatsApp Pura Belleza">
     <i class="bi bi-whatsapp fs-3"></i>
   </a>
